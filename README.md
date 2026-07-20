@@ -28,11 +28,20 @@ A full-stack IT Operations & Security platform built on RHEL with Docker, Apache
 - SELinux
 
 ---
+## 📚 Documentation
+
+- [Troubleshooting & Build Log](docs/TROUBLESHOOTING.md)
 
 ## ⚙️ Setup Instructions
 
 ### Build Docker Image
 
+
+## 📸 Screenshots
+
+![Dashboard](docs/images/dashboard.png)
+![Tickets](docs/images/tickets.png)
+![Monitoring](docs/images/monitoring.png)
 ```bash
 docker build -t spitfire -f docs/Dockerfile .
 

@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Spitfire Solutions Operations Center</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #07111f;
+            color: #e6edf7;
+            min-height: 100vh;
+        }
+
+        header {
+            background: #0d1b2a;
+            border-bottom: 1px solid #263850;
+            padding: 20px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        header h1 {
+            font-size: 26px;
+        }
+
+        header p {
+            color: #93a4bb;
+            margin-top: 6px;
+        }
+
+        .connection-status {
+            background: #1b263b;
+            padding: 10px 16px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+
+        .online {
+            color: #57e389;
+        }
+
+        .offline {
+            color: #ff6b6b;
+        }
+
+        main {
+            padding: 25px;
+            max-width: 1500px;
+            margin: auto;
+        }
+
+        .section-title {
+            margin: 25px 0 15px;
+            font-size: 20px;
+            color: #c8d4e3;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 18px;
+        }
+
+        .card {
+            background: #0d1b2a;
+            border: 1px solid #24364d;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.22);
+        }
+
+        .card h3 {
+            color: #91a4bd;
+            font-size: 15px;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+        }
+
+        .value {
+            font-size: 24px;
+            font-weight: bold;
+            overflow-wrap: anywhere;
+        }
+
+        .small-value {
+            font-size: 17px;
+        }
+
+        .status-active {
+            color: #57e389;
+        }
+
+        .status-inactive {
+            color: #ff6b6b;
+        }
+
+        .status-warning {
+            color: #ffd166;
+        }
+
+        .progress {
+            margin-top: 15px;
+            height: 12px;
+            background: #1c2c40;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 100%;
+            width: 0%;
+            background: #4dabf7;
+            transition: width 0.5s ease;
+        }
+
+        .details {
+            margin-top: 10px;
+            color: #93a4bb;
+            font-size: 14px;
+        }
+
+        .error-banner {
+            display: none;
+            margin-bottom: 20px;
+            padding: 14px;
+            border-radius: 8px;
+            background: #4a1f25;
+            border: 1px solid #7c2f3b;
+            color: #ffb3b3;
+        }
+
+        footer {
+            text-align: center;
+            color: #74879f;
+            padding: 30px;
+        }
+
+        @media (max-width: 600px) {
+            header {
+                padding: 18px;
+            }
+
+            main {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div>
+        <h1>Spitfire Solutions Operations Center</h1>
+        <p>Live Linux infrastructure monitoring dashboard</p>
+    </div>
+
+    <div id="connectionStatus" class="connection-status offline">
+        Connecting...
+    </div>
+</header>
+
+<main>
+
+    <div id="errorBanner" class="error-banner">
+        Unable to contact the server status API.
+    </div>
+
+    <h2 class="section-title">Server Overview</h2>
+
+    <div class="grid">
+        <div class="card">
+            <h3>Hostname</h3>
+            <div id="hostname" class="value small-value">Loading...</div>
+        </div>
+
+        <div class="card">
+            <h3>IP Address</h3>
+            <div id="ipAddress" class="value small-value">Loading...</div>
+        </div>
+
+        <div class="card">
+            <h3>Operating System</h3>
+            <div id="operatingSystem" class="value small-value">Loading...</div>
+        </div>
+
+        <div class="card">
+            <h3>Kernel</h3>
+            <div id="kernel" class="value small-value">Loading...</div>
+        </div>
+
+        <div class="card">
+            <h3>Uptime</h3>
+            <div id="uptime" class="value small-value">Loading...</div>
+        </div>
+
+        <div class="card">
+            <h3>Server Time</h3>
+            <div id="serverTime" class="value small-value">Loading...</div>
+        </div>
+    </div>
+
+    <h2 class="section-title">System Performance</h2>
+
+    <div class="grid">
+        <div class="card">
+            <h3>CPU Load</h3>
+            <div id="cpuLoad" class="value">Loading...</div>
+            <div id="cpuDetails" class="details"></div>
+        </div>
+
+        <div class="card">
+            <h3>Memory Usage</h3>
+            <div id="memoryPercent" class="value">Loading...</div>
+
+            <div class="progress">
+                <div id="memoryBar" class="progress-bar"></div>
+            </div>
+
+            <div id="memoryDetails" class="details"></div>
+        </div>
+
+        <div class="card">
+            <h3>Disk Usage</h3>
+            <div id="diskPercent" class="value">Loading...</div>
+
+            <div class="progress">
+                <div id="diskBar" class="progress-bar"></div>
+            </div>
+
+            <div id="diskDetails" class="details"></div>
+        </div>
+    </div>
+
+    <h2 class="section-title">Services</h2>
+
+    <div class="grid">
+        <div class="card">
+            <h3>Apache</h3>
+            <div id="apacheStatus" class="value">Loading...</div>
+        </div>
+
+        <div class="card">
+            <h3>SSH</h3>
+            <div id="sshStatus" class="value">Loading...</div>
+        </div>
+
+        <div class="card">
+            <h3>Firewall</h3>
+            <div id="firewallStatus" class="value">Loading...</div>
+        </div>
+    </div>
+
+    <h2 class="section-title">Security and Network</h2>
+
+    <div class="grid">
+        <div class="card">
+            <h3>SELinux</h3>
+            <div id="selinux" class="value">Loading...</div>
+        </div>
+
+        <div class="card">
+            <h3>Failed Logins</h3>
+            <div id="failedLogins" class="value">Loading...</div>
+        </div>
+
+        <div class="card">
+            <h3>Default Gateway</h3>
+            <div id="gateway" class="value small-value">Loading...</div>
+        </div>
+
+        <div class="card">
+            <h3>Network Connections</h3>
+            <div id="connections" class="value">Loading...</div>
+        </div>
+
+        <div class="card">
+            <h3>Listening TCP Ports</h3>
+            <div id="listeningPorts" class="value">Loading...</div>
+        </div>
+    </div>
+
+</main>
+
+<footer>
+    Spitfire Solutions Lab Operations Center
+</footer>
+
+<script>
+    function setText(id, value) {
+        document.getElementById(id).textContent =
+            value === null || value === undefined || value === ""
+                ? "Unavailable"
+                : value;
+    }
+
+    function setServiceStatus(id, status) {
+        const element = document.getElementById(id);
+
+        element.textContent = status;
+
+        element.classList.remove(
+            "status-active",
+            "status-inactive",
+            "status-warning"
+        );
+
+        if (status === "active") {
+            element.classList.add("status-active");
+        } else {
+            element.classList.add("status-inactive");
+        }
+    }
+
+    function updateProgressBar(id, percent) {
+        const bar = document.getElementById(id);
+        const safePercent = Math.min(Math.max(Number(percent) || 0, 0), 100);
+
+        bar.style.width = safePercent + "%";
+    }
+
+    async function loadDashboard() {
+        const connectionStatus =
+            document.getElementById("connectionStatus");
+
+        const errorBanner =
+            document.getElementById("errorBanner");
+
+        try {
+            const response = await fetch(
+                "/status-api.php?timestamp=" + Date.now(),
+                {
+                    cache: "no-store"
+                }
+            );
+
+            if (!response.ok) {
+                throw new Error("HTTP error " + response.status);
+            }
+
+            const data = await response.json();
+
+            connectionStatus.textContent = "Live Connection";
+            connectionStatus.classList.remove("offline");
+            connectionStatus.classList.add("online");
+            errorBanner.style.display = "none";
+
+            setText("hostname", data.server.hostname);
+            setText("ipAddress", data.server.ip);
+            setText("operatingSystem", data.server.operating_system);
+            setText("kernel", data.server.kernel);
+            setText("uptime", data.server.uptime);
+            setText("serverTime", data.server.time);
+
+            setText("cpuLoad", data.cpu.load_1);
+            setText(
+                "cpuDetails",
+                data.cpu.cores +
+                " CPU core(s) | 5 min: " +
+                data.cpu.load_5 +
+                " | 15 min: " +
+                data.cpu.load_15
+            );
+
+            setText(
+                "memoryPercent",
+                data.memory.percent_used + "%"
+            );
+
+            setText(
+                "memoryDetails",
+                data.memory.used_mb +
+                " MB used of " +
+                data.memory.total_mb +
+                " MB"
+            );
+
+            updateProgressBar(
+                "memoryBar",
+                data.memory.percent_used
+            );
+
+            setText(
+                "diskPercent",
+                data.disk.percent_used + "%"
+            );
+
+            setText(
+                "diskDetails",
+                data.disk.used_gb +
+                " GB used of " +
+                data.disk.total_gb +
+                " GB"
+            );
+
+            updateProgressBar(
+                "diskBar",
+                data.disk.percent_used
+            );
+
+            setServiceStatus(
+                "apacheStatus",
+                data.services.apache
+            );
+
+            setServiceStatus(
+                "sshStatus",
+                data.services.ssh
+            );
+
+            setServiceStatus(
+                "firewallStatus",
+                data.services.firewalld
+            );
+
+            setText("selinux", data.security.selinux);
+            setText("failedLogins", data.security.failed_logins);
+            setText("gateway", data.network.gateway);
+            setText("connections", data.network.connections);
+            setText(
+                "listeningPorts",
+                data.network.listening_ports
+            );
+
+        } catch (error) {
+            console.error(error);
+
+            connectionStatus.textContent = "Connection Error";
+            connectionStatus.classList.remove("online");
+            connectionStatus.classList.add("offline");
+            errorBanner.style.display = "block";
+        }
+    }
+
+    loadDashboard();
+
+    setInterval(loadDashboard, 5000);
+</script>
+
+</body>
+</html>

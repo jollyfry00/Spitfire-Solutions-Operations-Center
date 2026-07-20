@@ -1,0 +1,292 @@
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    min-height: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    color: #dce5f0;
+    background: #080d14;
+}
+
+a {
+    color: #64c9f4;
+}
+
+/* Login page */
+
+.login-body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 24px;
+    background:
+        radial-gradient(circle at top, #1a2d47 0%, #090e16 60%);
+}
+
+.login-wrapper {
+    width: 100%;
+    max-width: 440px;
+}
+
+.login-card {
+    padding: 42px;
+    border: 1px solid #283b52;
+    border-radius: 16px;
+    background: rgba(15, 24, 37, 0.97);
+    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.50);
+}
+
+.brand-mark {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 22px;
+    border-radius: 14px;
+    color: #07111d;
+    background: #55c7f3;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.login-card h1 {
+    margin: 0;
+    text-align: center;
+    font-size: 28px;
+}
+
+.login-subtitle {
+    margin: 12px 0 30px;
+    color: #91a4b9;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #c2cedb;
+    font-weight: bold;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 13px 14px;
+    border: 1px solid #354a62;
+    border-radius: 8px;
+    color: #ffffff;
+    background: #0a1320;
+    font-size: 16px;
+}
+
+.form-group input:focus {
+    border-color: #55c7f3;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(85, 199, 243, 0.15);
+}
+
+.primary-button {
+    width: 100%;
+    padding: 14px;
+    border: 0;
+    border-radius: 8px;
+    color: #06101a;
+    background: #55c7f3;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.primary-button:hover {
+    background: #7ad5f7;
+}
+
+.alert {
+    margin-bottom: 20px;
+    padding: 12px;
+    border-radius: 8px;
+}
+
+.alert.error {
+    border: 1px solid #8c3544;
+    color: #ffd6dd;
+    background: #35131a;
+}
+
+.alert.warning {
+    border: 1px solid #8c6d33;
+    color: #ffeab7;
+    background: #342910;
+}
+
+.login-footer {
+    margin-top: 28px;
+    color: #70849a;
+    text-align: center;
+    font-size: 13px;
+}
+
+/* Application shell */
+
+.application-body {
+    min-height: 100vh;
+    background: #080d14;
+}
+
+.top-navigation {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 68px;
+    padding: 0 32px;
+    border-bottom: 1px solid #26384d;
+    background: #101a29;
+}
+
+.top-navigation strong {
+    font-size: 18px;
+}
+
+.user-navigation {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.user-navigation a {
+    text-decoration: none;
+}
+
+.user-navigation a:hover {
+    text-decoration: underline;
+}
+
+.role-badge {
+    padding: 6px 10px;
+    border: 1px solid #36536f;
+    border-radius: 999px;
+    color: #b8e5f7;
+    background: #172a3d;
+    font-size: 12px;
+}
+
+.dashboard-container {
+    max-width: 1350px;
+    margin: 0 auto;
+    padding: 38px 28px;
+}
+
+.dashboard-heading h1 {
+    margin: 0 0 8px;
+    font-size: 32px;
+}
+
+.dashboard-heading p {
+    margin: 0 0 28px;
+    color: #91a4b9;
+}
+
+.metric-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.metric-card,
+.content-panel {
+    border: 1px solid #26394f;
+    border-radius: 12px;
+    background: #101a29;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.20);
+}
+
+.metric-card {
+    padding: 24px;
+}
+
+.metric-label {
+    display: block;
+    color: #91a4b9;
+    font-size: 14px;
+}
+
+.metric-value {
+    display: block;
+    margin: 15px 0 8px;
+    font-size: 34px;
+}
+
+.metric-description {
+    color: #74889e;
+    font-size: 13px;
+}
+
+.status-online {
+    color: #6ce3a1;
+}
+
+.content-panel {
+    margin-top: 24px;
+    padding: 24px;
+}
+
+.content-panel h2 {
+    margin-top: 0;
+}
+
+#system-status {
+    min-height: 100px;
+    padding: 18px;
+    overflow: auto;
+    border: 1px solid #1f3043;
+    border-radius: 8px;
+    color: #b9e0f0;
+    background: #080f18;
+    white-space: pre-wrap;
+    font-family: Consolas, Monaco, monospace;
+    line-height: 1.6;
+}
+
+/* Responsive layout */
+
+@media (max-width: 900px) {
+    .metric-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .top-navigation {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 12px;
+        padding: 18px;
+    }
+
+    .user-navigation {
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 550px) {
+    .metric-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .login-card {
+        padding: 28px 22px;
+    }
+
+    .dashboard-container {
+        padding: 26px 18px;
+    }
+}

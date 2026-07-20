@@ -1,0 +1,63 @@
+Sun Jul 19 23:35:33 EDT 2026
+----- CONNECTIONS -----
+
+Sun Jul 19 23:35:39 EDT 2026
+----- CONNECTIONS -----
+
+Sun Jul 19 23:35:44 EDT 2026
+----- CONNECTIONS -----
+
+Sun Jul 19 23:35:49 EDT 2026
+----- CONNECTIONS -----
+
+Sun Jul 19 23:35:54 EDT 2026
+----- CONNECTIONS -----
+tcp    ESTAB      0      0      192.168.56.123:38728              192.168.56.123:80                  users:(("firefox",pid=4844,fd=72))
+tcp    ESTAB      0      0         ::ffff:192.168.56.123:80                    ::ffff:192.168.56.123:38728              
+
+Sun Jul 19 23:35:59 EDT 2026
+----- CONNECTIONS -----
+
+Sun Jul 19 23:36:04 EDT 2026
+----- CONNECTIONS -----
+
+Sun Jul 19 23:36:09 EDT 2026
+----- CONNECTIONS -----
+
+Sun Jul 19 23:36:14 EDT 2026
+----- CONNECTIONS -----
+
+Sun Jul 19 23:36:19 EDT 2026
+----- CONNECTIONS -----
+
+Sun Jul 19 23:36:24 EDT 2026
+----- CONNECTIONS -----
+tcp    ESTAB      0      0      192.168.56.123:38730              192.168.56.123:80                  users:(("firefox",pid=4844,fd=72))
+tcp    ESTAB      0      0         ::ffff:192.168.56.123:80                    ::ffff:192.168.56.123:38730              
+
+Sun Jul 19 23:36:29 EDT 2026
+----- CONNECTIONS -----
+
+Sun Jul 19 23:36:34 EDT 2026
+----- CONNECTIONS -----
+
+Sun Jul 19 23:36:40 EDT 2026
+----- CONNECTIONS -----
+
+Sun Jul 19 23:36:45 EDT 2026
+----- CONNECTIONS -----
+
+Sun Jul 19 23:36:50 EDT 2026
+----- CONNECTIONS -----
+
+Sun Jul 19 23:36:55 EDT 2026
+----- CONNECTIONS -----
+tcp    ESTAB      0      0      192.168.56.123:38732              192.168.56.123:80                  users:(("firefox",pid=4844,fd=72))
+tcp    ESTAB      0      0         ::ffff:192.168.56.123:80                    ::ffff:192.168.56.123:38732              
+
+Sun Jul 19 23:37:00 EDT 2026
+----- CONNECTIONS -----
+
+Sun Jul 19 23:37:05 EDT 2026
+----- CONNECTIONS -----
+

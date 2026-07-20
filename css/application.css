@@ -1,0 +1,850 @@
+/* ==========================================================
+   Spitfire Operations Center
+   Global Application Stylesheet
+   Compatible with the current RHEL 7 application
+   ========================================================== */
+
+
+/* ----------------------------------------------------------
+   Basic reset
+   ---------------------------------------------------------- */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    min-height: 100%;
+}
+
+body {
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+    background: #eef2f6;
+    color: #243447;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+a {
+    color: #1769aa;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #0d4777;
+    text-decoration: underline;
+}
+
+img {
+    max-width: 100%;
+}
+
+
+/* ----------------------------------------------------------
+   Existing-page container
+   ---------------------------------------------------------- */
+
+.container {
+    width: calc(100% - 40px);
+    max-width: 1500px;
+    margin: 25px auto;
+    padding: 28px;
+    background: #ffffff;
+    border: 1px solid #d7dee7;
+    border-radius: 8px;
+    box-shadow: 0 3px 14px rgba(31, 45, 61, 0.08);
+}
+
+.container > h1:first-child {
+    margin-top: 0;
+}
+
+
+/* ----------------------------------------------------------
+   Headings
+   ---------------------------------------------------------- */
+
+h1,
+h2,
+h3,
+h4 {
+    color: #1f2d3d;
+    font-weight: 600;
+}
+
+h1 {
+    margin: 0 0 18px 0;
+    font-size: 28px;
+}
+
+h2 {
+    margin-top: 24px;
+    font-size: 23px;
+}
+
+h3 {
+    margin-top: 24px;
+    font-size: 18px;
+}
+
+hr {
+    height: 1px;
+    margin: 20px 0;
+    border: 0;
+    background: #dce3eb;
+}
+
+
+/* ----------------------------------------------------------
+   Forms
+   ---------------------------------------------------------- */
+
+form {
+    margin: 0;
+}
+
+label {
+    color: #34495e;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="date"],
+input[type="datetime-local"],
+select,
+textarea {
+    width: 100%;
+    min-height: 40px;
+    padding: 9px 11px;
+    color: #243447;
+    background: #ffffff;
+    border: 1px solid #bdc7d3;
+    border-radius: 4px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    transition: border-color 0.15s ease,
+                box-shadow 0.15s ease;
+}
+
+textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="number"]:focus,
+input[type="date"]:focus,
+input[type="datetime-local"]:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: #1769aa;
+    box-shadow: 0 0 0 3px rgba(23, 105, 170, 0.13);
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+    margin-right: 6px;
+}
+
+button,
+input[type="submit"],
+.button,
+.btn {
+    display: inline-block;
+    min-height: 39px;
+    padding: 9px 16px;
+    color: #ffffff;
+    background: #1769aa;
+    border: 1px solid #1769aa;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 19px;
+    text-align: center;
+    text-decoration: none;
+}
+
+button:hover,
+input[type="submit"]:hover,
+.button:hover,
+.btn:hover {
+    color: #ffffff;
+    background: #0f568e;
+    border-color: #0f568e;
+    text-decoration: none;
+}
+
+.button-secondary,
+.btn-secondary {
+    color: #34495e;
+    background: #ffffff;
+    border-color: #aeb9c5;
+}
+
+.button-secondary:hover,
+.btn-secondary:hover {
+    color: #243447;
+    background: #edf1f5;
+    border-color: #8e9aa7;
+}
+
+.button-danger,
+.btn-danger {
+    color: #ffffff;
+    background: #c0392b;
+    border-color: #c0392b;
+}
+
+.button-danger:hover,
+.btn-danger:hover {
+    background: #992d22;
+    border-color: #992d22;
+}
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+}
+
+.form-row {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+    border-spacing: 14px 0;
+    margin-left: -14px;
+    margin-right: -14px;
+}
+
+.form-column {
+    display: table-cell;
+    width: 50%;
+    vertical-align: top;
+}
+
+.help-text {
+    display: block;
+    margin-top: 5px;
+    color: #697b8c;
+    font-size: 12px;
+}
+
+
+/* ----------------------------------------------------------
+   Messages and notifications
+   ---------------------------------------------------------- */
+
+.success-message,
+.error-message,
+.warning-message,
+.info-message {
+    margin: 15px 0;
+    padding: 13px 15px;
+    border: 1px solid;
+    border-radius: 5px;
+}
+
+.success-message {
+    color: #216437;
+    background: #e8f6ec;
+    border-color: #9ed4ac;
+}
+
+.error-message {
+    color: #842029;
+    background: #fbe9eb;
+    border-color: #e3a4aa;
+}
+
+.warning-message {
+    color: #73510d;
+    background: #fff5d8;
+    border-color: #e3c56c;
+}
+
+.info-message {
+    color: #174c6b;
+    background: #e8f4fb;
+    border-color: #9dcce6;
+}
+
+
+/* ----------------------------------------------------------
+   Tables
+   ---------------------------------------------------------- */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #ffffff;
+}
+
+th,
+td {
+    padding: 11px 12px;
+    border: 1px solid #d6dde5;
+    text-align: left;
+    vertical-align: top;
+}
+
+th {
+    color: #26384a;
+    background: #edf1f5;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+tbody tr:nth-child(even) {
+    background: #fafbfd;
+}
+
+tbody tr:hover {
+    background: #f1f6fa;
+}
+
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+}
+
+
+/* ----------------------------------------------------------
+   Status labels and badges
+   ---------------------------------------------------------- */
+
+.status-label,
+.priority-label,
+.badge {
+    display: inline-block;
+    padding: 4px 9px;
+    border: 1px solid transparent;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.status-new {
+    color: #0b5794;
+    background: #dceefe;
+    border-color: #9bc9ed;
+}
+
+.status-assigned {
+    color: #5b3b8c;
+    background: #eee5fa;
+    border-color: #c9b3e7;
+}
+
+.status-progress {
+    color: #7a5a00;
+    background: #fff1bd;
+    border-color: #e7ca62;
+}
+
+.status-waiting {
+    color: #8a4b0f;
+    background: #ffe6cd;
+    border-color: #e7b17b;
+}
+
+.status-resolved,
+.status-active {
+    color: #216437;
+    background: #dff3e5;
+    border-color: #9ed4ac;
+}
+
+.status-closed,
+.status-retired {
+    color: #536170;
+    background: #e8ebee;
+    border-color: #bdc5cd;
+}
+
+.status-storage {
+    color: #175983;
+    background: #e1f0fa;
+    border-color: #a5cadf;
+}
+
+.status-repair {
+    color: #8a4b0f;
+    background: #ffe4c7;
+    border-color: #e9b27a;
+}
+
+.priority-critical {
+    color: #8e1d1d;
+    background: #fbdada;
+    border-color: #e6a1a1;
+}
+
+.priority-high {
+    color: #944807;
+    background: #ffe3c7;
+    border-color: #e5ae76;
+}
+
+.priority-medium {
+    color: #745900;
+    background: #fff1bd;
+    border-color: #dfc660;
+}
+
+.priority-low {
+    color: #22633a;
+    background: #e0f2e5;
+    border-color: #9dcdaa;
+}
+
+
+/* ----------------------------------------------------------
+   Statistics and dashboard cards
+   ---------------------------------------------------------- */
+
+.ticket-statistics,
+.asset-statistics,
+.stat-grid {
+    display: table;
+    width: calc(100% + 20px);
+    margin: 0 -10px 20px -10px;
+    table-layout: fixed;
+    border-spacing: 10px;
+}
+
+.stat-card {
+    display: table-cell;
+    padding: 18px;
+    background: #ffffff;
+    border: 1px solid #d4dce5;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(31, 45, 61, 0.06);
+    text-align: center;
+    vertical-align: top;
+}
+
+.stat-card h2,
+.stat-number {
+    margin: 0;
+    color: #1769aa;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.stat-card p,
+.stat-label {
+    margin: 5px 0 0 0;
+    color: #627386;
+    font-size: 13px;
+}
+
+
+/* ----------------------------------------------------------
+   Filter sections
+   ---------------------------------------------------------- */
+
+.ticket-filter,
+.asset-filter,
+.filter-panel {
+    margin-bottom: 20px;
+    padding: 16px;
+    background: #f7f9fb;
+    border: 1px solid #d5dde6;
+    border-radius: 6px;
+}
+
+.ticket-filter form,
+.asset-filter form,
+.filter-panel form {
+    display: table;
+    width: 100%;
+}
+
+.ticket-filter label,
+.asset-filter label {
+    display: inline-block;
+    margin: 0 5px 5px 0;
+}
+
+.ticket-filter input,
+.ticket-filter select,
+.asset-filter input,
+.asset-filter select {
+    display: inline-block;
+    width: auto;
+    min-width: 145px;
+    margin: 0 12px 5px 0;
+    vertical-align: middle;
+}
+
+.ticket-filter input[type="text"],
+.asset-filter input[type="text"] {
+    min-width: 240px;
+}
+
+.ticket-filter button,
+.ticket-filter a,
+.asset-filter button,
+.asset-filter a {
+    display: inline-block;
+    margin: 0 6px 5px 0;
+}
+
+
+/* ----------------------------------------------------------
+   Cards and panels
+   ---------------------------------------------------------- */
+
+.panel {
+    margin-bottom: 20px;
+    background: #ffffff;
+    border: 1px solid #d4dce5;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(31, 45, 61, 0.05);
+}
+
+.panel-header {
+    padding: 14px 17px;
+    background: #f4f7fa;
+    border-bottom: 1px solid #d4dce5;
+    border-radius: 6px 6px 0 0;
+}
+
+.panel-header h2,
+.panel-header h3 {
+    margin: 0;
+}
+
+.panel-body {
+    padding: 17px;
+}
+
+.panel-footer {
+    padding: 12px 17px;
+    background: #f8fafc;
+    border-top: 1px solid #d4dce5;
+    border-radius: 0 0 6px 6px;
+}
+
+
+/* ----------------------------------------------------------
+   Login page
+   ---------------------------------------------------------- */
+
+.login-container {
+    width: calc(100% - 30px);
+    max-width: 430px;
+    margin: 80px auto;
+    padding: 30px;
+    background: #ffffff;
+    border: 1px solid #d4dce5;
+    border-radius: 8px;
+    box-shadow: 0 8px 28px rgba(31, 45, 61, 0.14);
+}
+
+.login-container h1 {
+    text-align: center;
+}
+
+.login-container button,
+.login-container input[type="submit"] {
+    width: 100%;
+}
+
+
+/* ----------------------------------------------------------
+   Future Operations Center layout
+   ---------------------------------------------------------- */
+
+.app-shell {
+    min-height: 100vh;
+}
+
+.app-header {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1000;
+    height: 64px;
+    background: #182433;
+    border-bottom: 1px solid #0f1822;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
+}
+
+.app-brand {
+    float: left;
+    width: 250px;
+    height: 64px;
+    padding: 19px 20px;
+    color: #ffffff;
+    background: #101a25;
+    font-size: 17px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+
+.app-brand:hover {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.app-header-right {
+    float: right;
+    height: 64px;
+    padding: 13px 22px;
+    color: #dce6ef;
+    line-height: 38px;
+}
+
+.app-header-right a {
+    color: #ffffff;
+}
+
+.app-sidebar {
+    position: fixed;
+    top: 64px;
+    bottom: 0;
+    left: 0;
+    z-index: 900;
+    width: 250px;
+    overflow-y: auto;
+    background: #1f2d3d;
+    border-right: 1px solid #172230;
+}
+
+.sidebar-section-title {
+    padding: 18px 20px 8px 20px;
+    color: #8292a3;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.sidebar-nav {
+    margin: 0;
+    padding: 0 10px 20px 10px;
+    list-style: none;
+}
+
+.sidebar-nav li {
+    margin: 3px 0;
+}
+
+.sidebar-nav a {
+    display: block;
+    padding: 11px 13px;
+    color: #d8e0e8;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.sidebar-nav a:hover {
+    color: #ffffff;
+    background: #2c4055;
+    text-decoration: none;
+}
+
+.sidebar-nav a.active {
+    color: #ffffff;
+    background: #1769aa;
+}
+
+.sidebar-nav .nav-icon {
+    display: inline-block;
+    width: 24px;
+    margin-right: 5px;
+    text-align: center;
+}
+
+.app-main {
+    min-height: 100vh;
+    margin-left: 250px;
+    padding-top: 64px;
+}
+
+.app-content {
+    padding: 26px;
+}
+
+.page-header {
+    margin-bottom: 22px;
+}
+
+.page-header:after {
+    display: table;
+    clear: both;
+    content: "";
+}
+
+.page-header-title {
+    float: left;
+}
+
+.page-header-title h1 {
+    margin: 0;
+}
+
+.page-header-title p {
+    margin: 4px 0 0 0;
+    color: #687b8e;
+}
+
+.page-header-actions {
+    float: right;
+}
+
+
+/* ----------------------------------------------------------
+   Utility classes
+   ---------------------------------------------------------- */
+
+.text-muted,
+.muted-text {
+    color: #6c7d8d;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-danger {
+    color: #b52b27;
+}
+
+.text-success {
+    color: #27743d;
+}
+
+.clearfix:after {
+    display: table;
+    clear: both;
+    content: "";
+}
+
+.hidden {
+    display: none;
+}
+
+.no-margin {
+    margin: 0;
+}
+
+
+/* ----------------------------------------------------------
+   Responsive adjustments
+   ---------------------------------------------------------- */
+
+@media screen and (max-width: 1000px) {
+
+    .container {
+        width: calc(100% - 24px);
+        margin: 12px auto;
+        padding: 18px;
+    }
+
+    .ticket-statistics,
+    .asset-statistics,
+    .stat-grid {
+        display: block;
+        width: 100%;
+        margin: 0 0 20px 0;
+    }
+
+    .stat-card {
+        display: block;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .ticket-filter form,
+    .asset-filter form {
+        display: block;
+    }
+
+    .ticket-filter label,
+    .asset-filter label {
+        display: block;
+    }
+
+    .ticket-filter input,
+    .ticket-filter select,
+    .asset-filter input,
+    .asset-filter select {
+        display: block;
+        width: 100%;
+        margin: 0 0 12px 0;
+    }
+
+    .form-row,
+    .form-column {
+        display: block;
+        width: 100%;
+        margin: 0;
+    }
+
+    .form-column {
+        margin-bottom: 14px;
+    }
+
+}
+
+@media screen and (max-width: 760px) {
+
+    .app-header {
+        position: static;
+        height: auto;
+    }
+
+    .app-brand,
+    .app-header-right {
+        float: none;
+        width: 100%;
+        height: auto;
+        padding: 14px 18px;
+    }
+
+    .app-sidebar {
+        position: static;
+        width: 100%;
+    }
+
+    .app-main {
+        margin-left: 0;
+        padding-top: 0;
+    }
+
+    .app-content {
+        padding: 15px;
+    }
+
+    .page-header-title,
+    .page-header-actions {
+        float: none;
+    }
+
+    .page-header-actions {
+        margin-top: 12px;
+    }
+
+}
